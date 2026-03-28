@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Token Saver - AI Token 节省工具</title>
+    <meta name="description" content="全方位 Token 节省解决方案，用文言文压缩、智能压缩、英语压缩让你的 AI 对话更高效">
+    <meta name="keywords" content="token, AI, 压缩, 文言文, ChatGPT, Claude, WorkBuddy, 节省成本">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .hero .subtitle {
+            font-size: 1.5em;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .hero .cta {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .hero .cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        /* Features Section */
+        .features {
+            background: white;
+            padding: 80px 0;
+        }
+        
+        .features h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            color: #333;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .feature-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+        
+        .feature-card p {
+            color: #666;
+        }
+        
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 60px 0;
+            color: white;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+        
+        .stat-item h3 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        
+        .stat-item p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        /* Demo Section */
+        .demo {
+            background: white;
+            padding: 80px 0;
+        }
+        
+        .demo h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 50px;
+        }
+        
+        .demo-box {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 30px;
+            border-radius: 15px;
+            font-family: 'Courier New', monospace;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .demo-box .input {
+            color: #ce9178;
+        }
+        
+        .demo-box .output {
+            color: #4ec9b0;
+        }
+        
+        .demo-box .stats-line {
+            color: #6a9955;
+            margin-top: 20px;
+        }
+        
+        /* Platforms Section */
+        .platforms {
+            background: #f8f9fa;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .platforms h2 {
+            font-size: 2.5em;
+            margin-bottom: 50px;
+        }
+        
+        .platform-logos {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .platform-logo {
+            background: white;
+            padding: 20px 40px;
+            border-radius: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>🚀 Token Saver</h1>
+            <p class="subtitle">全方位 Token 节省解决方案</p>
+            <p style="margin-bottom: 30px; font-size: 1.2em;">让 AI 对话更高效，节省 20-80% Token 消耗</p>
+            <a href="https://github.com/Windymonkeys/token-saver" class="cta">GitHub 开源</a>
+            <a href="#features" class="cta">了解更多</a>
+        </div>
+    </section>
+    
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>20-80%</h3>
+                    <p>Token 节省率</p>
+                </div>
+                <div class="stat-item">
+                    <h3>450+</h3>
+                    <p>文言文词条</p>
+                </div>
+                <div class="stat-item">
+                    <h3>7+</h3>
+                    <p>支持平台</p>
+                </div>
+                <div class="stat-item">
+                    <h3>30+</h3>
+                    <p>Prompt 模板</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2>核心功能</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📜</div>
+                    <h3>文言文压缩</h3>
+                    <p>现代汉语转换为简洁文言，节省 20-40% Token</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3>智能压缩</h3>
+                    <p>语义权重分析，删除冗余信息，节省 25-80%</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>英语压缩</h3>
+                    <p>去除填充词，简化表达，节省 15-30%</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Token 计算</h3>
+                    <p>多模型成本估算，支持 GPT-4、Claude 等</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📦</div>
+                    <h3>批量处理</h3>
+                    <p>文件夹一键压缩，高效处理大量文档</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Prompt 模板</h3>
+                    <p>30+ 预定义模板，减少重复描述</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Demo Section -->
+    <section class="demo">
+        <div class="container">
+            <h2>效果演示</h2>
+            <div class="demo-box">
+                <div class="input">$ token-saver "今天我在使用这个功能的时候发现了一个问题，就是当我点击提交按钮之后，页面没有任何反应"</div>
+                <br><br>
+                <div class="output">压缩模式: smart</div>
+                <br>
+                <div class="output">压缩结果: 提交按钮无响应，需排查</div>
+                <div class="stats-line">
+✨ 节省: 46 字 (79%)
+💰 节省 Token: 30
+💵 节省成本: $0.0009 (GPT-4)</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Platforms Section -->
+    <section class="platforms">
+        <div class="container">
+            <h2>支持平台</h2>
+            <div class="platform-logos">
+                <div class="platform-logo">WorkBuddy</div>
+                <div class="platform-logo">Cursor</div>
+                <div class="platform-logo">Claude</div>
+                <div class="platform-logo">ChatGPT</div>
+                <div class="platform-logo">Poe</div>
+                <div class="platform-logo">Coze</div>
+                <div class="platform-logo">Dify</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Made with ❤️ by <a href="https://github.com/Windymonkeys">Windymonkeys</a></p>
+            <p style="margin-top: 10px;">
+                <a href="https://github.com/Windymonkeys/token-saver">GitHub</a> · 
+                <a href="https://github.com/Windymonkeys/token-saver/issues">Issues</a> · 
+                <a href="https://github.com/Windymonkeys/token-saver/discussions">Discussions</a>
+            </p>
+            <p style="margin-top: 20px; opacity: 0.7;">MIT License © 2026</p>
+        </div>
+    </footer>
+</body>
+</html>
