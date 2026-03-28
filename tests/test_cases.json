@@ -1,0 +1,89 @@
+{
+  "test_cases": [
+    {
+      "id": "TC001",
+      "category": "简单句",
+      "modern": "你知道这个方法吗？",
+      "wenyan": "汝知此法乎？",
+      "token_saved": 3
+    },
+    {
+      "id": "TC002",
+      "category": "简单句",
+      "modern": "我认为这个结果很好",
+      "wenyan": "吾以为此果甚善",
+      "token_saved": 2
+    },
+    {
+      "id": "TC003",
+      "category": "复杂句",
+      "modern": "因为他很努力，所以成功了",
+      "wenyan": "因彼甚勤，故成矣",
+      "token_saved": 4
+    },
+    {
+      "id": "TC004",
+      "category": "简单句",
+      "modern": "这个问题很难解决",
+      "wenyan": "此疑甚难解",
+      "token_saved": 3
+    },
+    {
+      "id": "TC005",
+      "category": "礼貌用语",
+      "modern": "谢谢你告诉我这个消息",
+      "wenyan": "谢汝告吾此讯",
+      "token_saved": 4
+    }
+  ],
+  "token_analysis": {
+    "description": "基于 GPT-4 tokenizer 的近似分析（实际节省率可能因模型而异）",
+    "chinese_token_ratio": "约 1.5-2 个汉字 = 1 token",
+    "compression_benefits": [
+      "短文本（<50字）：节省 10-20%",
+      "中等文本（50-200字）：节省 15-30%",
+      "长文本（>200字）：节省 20-40%"
+    ],
+    "best_use_cases": [
+      "背景信息描述",
+      "任务需求说明",
+      "多轮对话历史摘要",
+      "重复性内容压缩"
+    ]
+  },
+  "real_world_examples": [
+    {
+      "scenario": "需求描述",
+      "original": "我需要你帮我设计一个用户登录页面，要求界面简洁美观，支持手机号和邮箱两种登录方式，还需要有忘记密码的功能，最好能记住用户的登录状态。",
+      "compressed": "吾需汝设计用户登录页，界面宜简美，支持手机号、邮箱二法，并需忘密功能，若能记用户登录态更佳。",
+      "stats": {
+        "original_length": 62,
+        "compressed_length": 45,
+        "saved": 17,
+        "compression_rate": "27%"
+      }
+    },
+    {
+      "scenario": "问题反馈",
+      "original": "今天我在使用这个功能的时候发现了一个问题，就是当我点击提交按钮之后，页面没有任何反应，我不知道是什么原因导致的，你能帮我看看吗？",
+      "compressed": "今日吾用此功能时发现一疑：点提交键后，页无反应，不知何故，汝能助吾察之乎？",
+      "stats": {
+        "original_length": 58,
+        "compressed_length": 38,
+        "saved": 20,
+        "compression_rate": "34%"
+      }
+    },
+    {
+      "scenario": "代码解释",
+      "original": "这段代码的作用是遍历数组中的每一个元素，然后对每个元素进行处理，最后把处理后的结果保存到一个新的数组里面。",
+      "compressed": "此码之用为遍历数组诸元，各处理之，终存处理果于新数组。",
+      "stats": {
+        "original_length": 46,
+        "compressed_length": 28,
+        "saved": 18,
+        "compression_rate": "39%"
+      }
+    }
+  ]
+}

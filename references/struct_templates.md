@@ -2,42 +2,29 @@
 
 本文件提供常用的结构化输出模板，用于减少自然语言描述，提升 Token 效率。
 
-## 使用方式
-
-在需要输出结构化内容时，选择对应模板并填充数据。
-
 ---
 
 ## 1. JSON Schema 模板
 
-### 基础对象
+### API 标准响应
 ```json
 {
-  "type": "object",
-  "properties": {
-    "field_name": {
-      "type": "string|number|boolean|array|object",
-      "description": "字段说明",
-      "required": true|false
-    }
-  },
-  "required": ["field_name"]
+  "code": 200,
+  "message": "success",
+  "data": {}
 }
 ```
 
-### 响应格式
+### 错误响应
 ```json
 {
-  "success": true|false,
-  "data": {},
-  "error": {
-    "code": "ERROR_CODE",
-    "message": "错误描述"
-  }
+  "code": 400,
+  "message": "错误描述",
+  "data": null
 }
 ```
 
-### 分页结果
+### 分页数据
 ```json
 {
   "items": [],
@@ -55,7 +42,33 @@
 {
   "items": [],
   "count": 0,
-  "hasMore": true|false
+  "hasMore": false
+}
+```
+
+### 嵌套对象
+```json
+{
+  "user": {
+    "id": "",
+    "name": "",
+    "email": "",
+    "profile": {
+      "avatar": "",
+      "bio": ""
+    }
+  }
+}
+```
+
+### 批量操作结果
+```json
+{
+  "success": [],
+  "failed": [],
+  "total": 0,
+  "successCount": 0,
+  "failedCount": 0
 }
 ```
 
@@ -73,143 +86,182 @@
 ### 对齐表格
 ```
 | 左对齐 | 居中 | 右对齐 |
-|:-------|:----:|------:|
+|:-------|:----:|-------:|
 | 内容 | 内容 | 内容 |
 ```
 
-### 复杂表头
+### 功能对比表
 ```
-| 功能 | 描述 | 参数 | 返回值 |
-|------|------|------|--------|
-| | | | |
+| 功能 | 版本A | 版本B |
+|------|-------|-------|
+| 特性1 | ✓ | ✗ |
+| 特性2 | ✓ | ✓ |
+```
+
+### 状态表
+```
+| 任务 | 状态 | 备注 |
+|------|------|------|
+| | 待办/进行中/完成 | |
 ```
 
 ---
 
 ## 3. 代码注释模板
 
-### 函数注释
+### JavaScript 函数
 ```javascript
 /**
  * 函数功能简述
  * @param {类型} 参数名 - 参数描述
- * @param {类型} 参数名 - 参数描述
  * @returns {类型} 返回值描述
- * @throws {错误类型} 异常情况描述
  */
 ```
 
-### 类注释
-```javascript
-/**
- * 类名：类功能描述
- * @class
- * @author 作者
- * @date 创建日期
- * @description 详细描述
- */
+### Python 函数
+```python
+def function_name(param: type) -> return_type:
+    """
+    函数功能简述
+    
+    Args:
+        param: 参数描述
+    
+    Returns:
+        返回值描述
+    """
 ```
 
-### 文件头注释
-```javascript
+### TypeScript 接口
+```typescript
 /**
- * @file 文件名
- * @description 文件功能描述
- * @author 作者
- * @date 日期
- * @version 版本号
+ * 接口描述
  */
+interface IExample {
+  /** 属性描述 */
+  property: type;
+}
 ```
 
 ### TODO 注释
 ```javascript
-// TODO: [日期] 待完成事项 - 负责人
-// FIXME: [日期] 已知问题 - 负责人
+// TODO: 待完成事项
+// FIXME: 已知问题
 // NOTE: 注意事项
-// HACK: 临时解决方案
+// HACK: 临时方案
 ```
 
 ---
 
-## 4. API 响应模板
+## 4. API 文档模板
 
-### 成功响应
+### RESTful API
+```
+## 接口名称
+
+**METHOD** `/api/path`
+
+### 参数
+| 名称 | 类型 | 必填 | 描述 |
+|------|------|------|------|
+| | | | |
+
+### 响应
 ```json
-{
-  "code": 200,
-  "message": "success",
-  "data": {}
-}
+{}
 ```
 
-### 错误响应
-```json
-{
-  "code": 400|401|403|404|500,
-  "message": "错误信息",
-  "data": null
-}
+### 示例
+```bash
+curl -X METHOD "url"
+```
 ```
 
-### 分页响应
-```json
-{
-  "code": 200,
-  "data": {
-    "list": [],
-    "pagination": {
-      "page": 1,
-      "pageSize": 20,
-      "total": 100
-    }
+### GraphQL 查询
+```graphql
+query QueryName($var: Type) {
+  field(arg: $var) {
+    subField
   }
 }
 ```
 
 ---
 
-## 5. 数据字典模板
+## 5. 配置文件模板
 
-### 枚举值
+### package.json
 ```json
 {
-  "fieldName": {
-    "type": "enum",
-    "values": [
-      { "value": "value1", "label": "标签1", "description": "描述" },
-      { "value": "value2", "label": "标签2", "description": "描述" }
-    ]
+  "name": "project-name",
+  "version": "1.0.0",
+  "scripts": {},
+  "dependencies": {}
+}
+```
+
+### tsconfig.json
+```json
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "commonjs",
+    "strict": true
   }
 }
 ```
 
-### 字段定义
-```json
-{
-  "fieldName": {
-    "type": "string|number|boolean",
-    "maxLength": 100,
-    "required": true,
-    "description": "字段描述",
-    "example": "示例值"
-  }
-}
+### .env
+```bash
+# 环境变量
+NODE_ENV=development
+API_URL=
+DB_HOST=
+```
+
+### Docker Compose
+```yaml
+version: '3'
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
 ```
 
 ---
 
-## 6. 状态机模板
+## 6. 数据结构模板
 
+### 树形结构
 ```json
 {
-  "states": ["状态1", "状态2", "状态3"],
-  "initial": "状态1",
+  "id": "",
+  "name": "",
+  "children": []
+}
+```
+
+### 图结构
+```json
+{
+  "nodes": [
+    { "id": "", "label": "" }
+  ],
+  "edges": [
+    { "from": "", "to": "" }
+  ]
+}
+```
+
+### 状态机
+```json
+{
+  "states": ["state1", "state2"],
+  "initial": "state1",
   "transitions": {
-    "状态1": ["状态2", "状态3"],
-    "状态2": ["状态3"],
-    "状态3": []
-  },
-  "finalStates": ["状态3"]
+    "state1": ["state2"]
+  }
 }
 ```
 
@@ -217,15 +269,26 @@
 
 ## 7. 测试用例模板
 
+### 单元测试
+```javascript
+describe('模块名', () => {
+  test('测试用例描述', () => {
+    // arrange
+    // act
+    // assert
+  });
+});
+```
+
+### 测试数据
 ```json
 {
   "testCases": [
     {
       "id": "TC001",
-      "name": "用例名称",
       "input": {},
       "expected": {},
-      "priority": "high|medium|low"
+      "actual": null
     }
   ]
 }
@@ -233,21 +296,50 @@
 
 ---
 
-## 8. 配置文件模板
+## 8. 项目文档模板
 
-### JSON 配置
-```json
-{
-  "name": "project-name",
-  "version": "1.0.0",
-  "config": {
-    "key": "value"
-  }
-}
+### README 结构
+```markdown
+# 项目名称
+
+简短描述
+
+## 安装
+
+## 使用
+
+## API
+
+## 配置
+
+## 贡献
+
+## 许可证
 ```
 
-### 环境变量
-```bash
-# 格式: KEY=默认值 # 说明
-ENV_VAR=value # 环境变量说明
+### CHANGELOG
+```markdown
+## [1.0.0] - 2024-01-01
+
+### Added
+- 新功能
+
+### Changed
+- 变更
+
+### Fixed
+- 修复
 ```
+
+---
+
+## 使用建议
+
+| 场景 | 推荐模板 |
+|------|----------|
+| API 设计 | JSON Schema + API 文档 |
+| 数据结构 | JSON Schema |
+| 代码注释 | 函数/接口注释 |
+| 功能对比 | Markdown 表格 |
+| 测试 | 测试用例模板 |
+| 配置 | 对应配置文件模板 |
